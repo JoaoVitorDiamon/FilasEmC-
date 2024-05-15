@@ -28,17 +28,13 @@ namespace FilasEmC_
                 switch (opcao)
                 {
                     case "1":
-                        Console.Write("Digite o nome do cliente: ");
-                        string nome = Console.ReadLine();
-                        filaDeClientes.CadastrarClientes(nome);
+                        filaDeClientes.CadastrarClientes();
                         break;
                     case "2":
                         filaDeClientes.MostrarLista();
                         break;
                     case "3":
-                        Console.Write("Digite o nome do cliente prioritário: ");
-                        nome = Console.ReadLine();
-                        filaDeClientes.AdicionarPrioridade(nome);
+                        filaDeClientes.AdicionarPrioridade();
                         break;
                     case "4":
                         filaDeClientes.AtenderPessoa();
