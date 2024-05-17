@@ -17,11 +17,13 @@ namespace FilasEmC_
             opcao.ToLower();
             while (opcao != "q")
             {
-                Console.WriteLine("1. Cadastrar cliente");
-                Console.WriteLine("2. Mostrar fila");
-                Console.WriteLine("3. Adicionar Cliente com Prioridade");
-                Console.WriteLine("4. Atender cliente");
-                Console.WriteLine("Digite  a Letra 'q' para sair.");
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine("\t\t\t\t\t\tSISTEMA DE FILAS\n" +
+                    "1. Cadastrar clientes\n" +
+                    "2. Mostrar fila\n" +
+                    "3. Adicionar Cliente com Prioridade\n" +
+                    "4. Atender cliente\nDigite  a Letra 'q' para sair.");
+
 
                 opcao = Console.ReadLine();
 
