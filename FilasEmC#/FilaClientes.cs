@@ -20,11 +20,14 @@ namespace FilasEmC_
 
         public void CadastrarClientes()
         {
-
+            if (QuantidadesClientes < tamanhoDaFila)
+            {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Clear();
             Console.WriteLine("Digite o Nome do Seu Cliente:");
             string nome = Console.ReadLine();
+            Console.WriteLine("Digite a Idade do Seu Cliente:");
+            int idade = int.Parse(Console.ReadLine());
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Clear();
             Console.WriteLine($"O Cliente {nome} foi inserido com Sucesso");
@@ -34,19 +37,21 @@ namespace FilasEmC_
             Console.ReadKey();
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.White;
-            if (QuantidadesClientes < tamanhoDaFila)
-            {
 
-            Pessoa pessoa = new Pessoa(nome);
+            Pessoa pessoa = new Pessoa(nome,idade);
                 filaClientes[QuantidadesClientes] = pessoa;
                 QuantidadesClientes += 1;
             Console.ForegroundColor = ConsoleColor.White;
             }
             else
             {
-                Console.WriteLine("Fila esta Cheia");
+                Console.Clear();
+                Console.WriteLine("Fila esta Cheia.");
                 Console.ForegroundColor = ConsoleColor.Red;
-
+                Console.WriteLine("Aperte qualquer tecla pra voltar...");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.ReadKey();
+                Console.Clear();
             }
         }
 
@@ -54,7 +59,6 @@ namespace FilasEmC_
         {
             if(QuantidadesClientes > 0)
             {
-
             for (int i = 0; i < filaClientes.Length; i++)
             {
                 if (filaClientes[i] != null)
@@ -63,16 +67,13 @@ namespace FilasEmC_
 
                     Console.Clear();
                     Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine($"\nCliente:{i + 1}\nNome:{filaClientes[i].nome}\nPrioridade:{mensagemDaPrioridade}");
+                    Console.WriteLine($"\nCliente:{i + 1}\nNome:{filaClientes[i].nome}\nIdade:{filaClientes[i].idade}\nPrioridade:{mensagemDaPrioridade}");
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("Aperte qualquer tecla pra voltar...");
                     Console.ForegroundColor = ConsoleColor.White;
                      Console.ReadKey();
                     Console.Clear();
                 }
-
-                
-
             }
             } else
                 {
@@ -89,11 +90,14 @@ namespace FilasEmC_
 
         public void AdicionarPrioridade()
         {
+            if (QuantidadesClientes < tamanhoDaFila)
+            {
             Console.ForegroundColor = ConsoleColor.Yellow;
-
             Console.Clear();
             Console.WriteLine("Digite o Nome do Seu Cliente:");
             string nome = Console.ReadLine();
+            Console.WriteLine("Digite a Idade do Seu Cliente:");
+            int idade = int.Parse(Console.ReadLine());
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Clear();
             Console.WriteLine($"O Cliente {nome} prioritario foi inserido com sucesso");
@@ -103,24 +107,19 @@ namespace FilasEmC_
             Console.ReadKey();
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.White;
-
-            if (QuantidadesClientes < tamanhoDaFila)
-            {
-                Pessoa pessoaPrioridade = new Pessoa(nome, true);
+            Pessoa pessoaPrioridade = new Pessoa(nome, idade, true);
 
                 for (int i = QuantidadesClientes - 1; i >= NumeroPrioridade; i--)
                 {
-
                     filaClientes[i + 1] = filaClientes[i];
                 }
-
                 filaClientes[NumeroPrioridade] = pessoaPrioridade;
                 QuantidadesClientes++;
                 NumeroPrioridade++;
             }
             else
             {
-                
+                Console.Clear();
                 Console.WriteLine("Fila está cheia.");
                 Console.WriteLine("Aperte qualquer tecla pra voltar...");
                 Console.ForegroundColor = ConsoleColor.White;
@@ -133,7 +132,6 @@ namespace FilasEmC_
             if (QuantidadesClientes > 0)
             {
                 Pessoa pessoaAtendida = filaClientes[0];
-
                 for (int i = 1; i < QuantidadesClientes; i++)
                 {
                     filaClientes[i - 1] = filaClientes[i];
@@ -154,18 +152,10 @@ namespace FilasEmC_
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Não há clientes na fila.");
             }
-
             Console.WriteLine("Aperte qualquer tecla para voltar...");
             Console.ReadKey();
             Console.Clear();
         }
-
-
-
-
-
-
-
     }
 
 }

@@ -14,8 +14,7 @@ namespace FilasEmC_
 
             string opcao = "a";
 
-            opcao.ToLower();
-            while (opcao != "q")
+            while (opcao.ToLower() != "q")
             {
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.WriteLine("\t\t\t\t\t\tSISTEMA DE FILAS\n" +
@@ -42,6 +41,7 @@ namespace FilasEmC_
                         filaDeClientes.AtenderPessoa();
                         break;
                     default:
+                        Console.Clear();
                         Console.WriteLine("Opção inválida. Tente novamente.");
                         break;
                 }
