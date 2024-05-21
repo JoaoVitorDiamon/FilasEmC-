@@ -5,3 +5,7 @@ para sair do software digite deve ser digitado a letra 'q'.
 Deverá ser efetuado em dupla já definida no projeto da disciplina. Criar um repositório publico e entregar o link do repositório nesta atividade. A dupla deve entregar a atividade individualmente.
 
 hey.
+
+
+João Vitor Diamon
+Marco Andreik
